@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Search stations" id="searchInput">
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="searchResults">
+        </div>
+    </div>
+    <div class="scrollable-container" id="stationContainer">
+        <ul id="stations">
+            {% for item in data %}
+            <li id="{{ item['Station'] }}">
+                <a href="#" onclick="toggleWeatherData('{{ item['Station'] }}')">{{ item['Station'] }}</a>
+                <div id="{{ item['Station'] }}-weather" class="weather-data">
+                    {% if 'Max Temp (\u00b0C)' in item %}
+                    <p><strong>Max Temp (°C):</strong> {{ item['Max Temp (\u00b0C)'] }}</p>
+                    {% endif %}
+                    {% if 'Min Temp (\u00b0C)' in item %}
+                    <p><strong>Min Temp (°C):</strong> {{ item['Min Temp (\u00b0C)'] }}</p>
+                    {% endif %}
+                    {% if 'RH at 0830IST' in item %}
+                    <p><strong>RH at 08:30IST:</strong> {{ item['RH at 0830IST'] }}</p>
+                    {% endif %}
+                    {% if 'RH at 1730IST' in item %}
+                    <p><strong>RH at 17:30IST:</strong> {{ item['RH at 1730IST'] }}</p>
+                    {% endif %}
+                    {% if 'Rainfall (mm)' in item %}
+                    <p><strong>Rainfall (mm):</strong> {{ item['Rainfall (mm)'] }}</p>
+                    {% endif %}
+                    <button class="btn btn-secondary" onclick="viewReport('{{ item['Station']}}')">View Report</button>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    var stations = [{% for item in data %}"{{ item['Station'] }}",{% endfor %}];
+
+    $(document).ready(function () {
+        $("#searchInput").on("input", function () {
+            var inputVal = $(this).val();
+            var searchResults = $("#searchResults");
+            searchResults.empty();
+            var matches = [];
+            if (inputVal) {
+                matches = stations.filter(station =>
+                    station.toLowerCase().includes(inputVal.toLowerCase())
+                ).slice(0, 5);
+            }
+            if (matches.length > 0) {
+                searchResults.show();
+                matches.forEach(function (match) {
+                    searchResults.append(`<a class="dropdown-item" href="#" onclick="showWeatherData('${match}')">${match}</a>`);
+                });
+            } else {
+                searchResults.hide();
+            }
+        });
+    });
+
+    function showWeatherData(station) {
+        $("#stationContainer").scrollTop($("#" + station).offset().top - $("#stationContainer").offset().top);
+        toggleWeatherData(station);
+    }
+
+    function toggleWeatherData(station) {
+        $("#" + station + "-weather").slideToggle();
+    }
+
+    function viewReport(station) {
+        window.location.href = "/reports/" + station;
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+<title>All Reports</title>
+{% block content %}
+<div class="container">
+    <h2>Stationwise Weather Reports:</h2>
+    <div class="table-container" style="max-height: 400px; overflow-y: auto;">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Station</th>
+                    <th>Report</th>
+                </tr>
+            </thead>
+            <tbody id="data-body">
+                <!-- Data will be displayed here -->
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    const fetchData = async () => {
+        try {
+            const response = await fetch('/data');
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            console.error('Error fetching data: ', error);
+            return [];
+        }
+    };
+
+    $(document).ready(async function () {
+        const data = await fetchData();
+        displayData(data);
+    });
+
+    const displayData = (data) => {
+        const dataBody = document.getElementById('data-body');
+        data.forEach(item => {
+            const row = document.createElement('tr');
+            const stationCell = document.createElement('td');
+            const reportCell = document.createElement('td');
+
+            stationCell.textContent = item['Station'];
+            reportCell.textContent = item['generated_report'];
+
+            row.appendChild(stationCell);
+            row.appendChild(reportCell);
+            dataBody.appendChild(row);
+        });
+    };
+</script>
+{% endblock %}

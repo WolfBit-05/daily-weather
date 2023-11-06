@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Individual Weather Report</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+            text-align: center;
+            padding-top: 40px;
+        }
+
+        h1 {
+            font-family: "Impact", sans-serif;
+            color: #4b5252;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h2{
+            margin-top: 10px;
+        }
+
+        .station-img{
+            border-radius: 1%;
+        }
+
+        p {
+            margin: 20px;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+        
+        #readaloud{
+            font-size: 18px;
+            background-color: #474444;
+            border-radius: 25%;
+            color: #fff;
+        }
+
+        #logout{
+            margin-left: 1200px;
+            border-radius: 25px;
+        }
+        
+    </style>
+    <header style="background-color: #f2f2f2; padding: 20px; text-align: center;">
+        <button id="logout" onclick="logout()">Log Out</button>
+        <h1>Daily Weather 🌤️</h1>
+        <nav style="display: inline-block;">
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link {% if request.path == '/' %}active disabled{% endif %}" aria-current="page" href="{% if request.path != '/' %}/ {% endif %}">Home 🏠</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if request.path == '/all_reports/' %}active disabled{% endif %}" href="{% if request.path != '/all_reports/' %}/all_reports/ {% endif %}">Reports 📰</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if request.path == '/graph/' %}active disabled{% endif %}" href="{% if request.path != '/graph/' %}/graph/ {% endif %}">Graphs 📊</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+</head>
+<body>
+    <h2>{{station_name}}'s Weather Report</h2>
+    <div class="container">
+        <div class="row justify-content-center">
+            <img class="station-img" src="{{url_for('static', filename='img/' + station_name + '.jpg')}}" width="300" height="330">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <p id="reportText">{{report}}</p>
+                        <select id="voiceSelect" class="form-control mb-3"></select>
+                        <button id="readaloud" onclick="toggleListen()">🔊</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let isListening = false;
+        let utterance = new SpeechSynthesisUtterance();
+        
+        function populateVoiceList() {
+            const voices = speechSynthesis.getVoices();
+            const voiceSelect = document.getElementById('voiceSelect');
+            voiceSelect.innerHTML = ''; // Clearing the dropdown before repopulating
+
+            voices
+                .filter(voice => voice.lang.startsWith('en')) // Filtering only English voices
+                .forEach((voice, i) => {
+                    const option = document.createElement('option');
+                    option.value = voice.name;
+                    option.textContent = voice.name;
+                    voiceSelect.appendChild(option);
+                });
+        }
+
+        if (speechSynthesis.onvoiceschanged !== undefined) {
+            speechSynthesis.onvoiceschanged = populateVoiceList;
+        }
+
+        function toggleListen() {
+            isListening = !isListening;
+            if (isListening) {
+                document.getElementById('readaloud').innerText = '🔇';
+                speakReport();
+            } else {
+                document.getElementById('readaloud').innerText = '🔊';
+                speechSynthesis.cancel();
+            }
+        }
+
+        function speakReport() {
+            const text = document.getElementById('reportText').innerText;
+            const selectedVoice = document.getElementById('voiceSelect').value;
+            utterance.text = text;
+            const voices = speechSynthesis.getVoices();
+            const selectedVoiceObj = voices.find(voice => voice.name === selectedVoice);
+            utterance.voice = selectedVoiceObj;
+            speechSynthesis.speak(utterance);
+        }
+
+        function redirectToHome() {
+            window.location.href = "/";
+        }
+    </script>
+</body>
+</html>

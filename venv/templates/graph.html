@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Graphical Representations</title>
+    <!-- Include the Chart.js library -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        .container {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .graph-container {
+            flex: 1;
+            display: flex;
+            flex-direction:row;
+            align-items: center;
+        }
+
+        .insights-container {
+            flex: 1;
+            margin-left: 20px;
+            border: 1px solid #ddd;
+            padding: 20px;
+            max-width: 300px;
+            box-sizing: border-box;
+        }
+
+        canvas {
+            max-width: 900px;
+            width: 100%;
+            height: auto;
+        }
+
+        select {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+{% extends "base.html" %}
+{% block content %}
+    <h2>Graphical Representations</h2>
+    <select id="graphSelector" onchange="loadGraph()">
+        <option value="temperatureChart">Temperature Chart</option>
+        <option value="morninghumidityChart">Morning Humidity Chart</option>
+        <option value="eveninghumidityChart">Evening Humidity Chart</option>
+        <option value="rainfallChart">Rainfall Chart</option>
+    </select>
+    <div class="graph-container">
+        <div id="dynamicContainer">
+            <canvas id="temperatureChart" width="600" height="400"></canvas>
+        </div>
+        <div class="insights-container" id="insightsContainer">
+            <h3>Temperature Insights [🌡️]</h3>
+            <p id="maxTemp">Highest Temperature: °C</p>
+            <p id="maxTempStation">Station: </p>
+            <p id="minTemp">Lowest Temperature: °C</p>
+            <p id="minTempStation">Station: </p>
+        </div>
+    </div>
+
+    <script>
+        const insightsContainer = document.getElementById('insightsContainer');
+
+        // Function to load the selected graph dynamically
+        window.loadGraph = function () {
+            const selectedGraph = document.getElementById('graphSelector').value;
+            const dynamicContainer = document.getElementById('dynamicContainer');
+            dynamicContainer.innerHTML = `<canvas id="${selectedGraph}" width="1000" height="400"></canvas>`;
+
+            // Access the data from the backend or use the stored data
+            const fetchData = async () => {
+                try {
+                    const response = await fetch('/data');
+                    const data = await response.json();
+                    return data;
+                } catch (error) {
+                    console.error('Error fetching data: ', error);
+                    return [];
+                }
+            };
+
+            // Call the function to fetch the data and generate the selected graph
+            fetchData().then((data) => {
+                // Extract relevant data for the selected graph
+                const stations = data.map(item => item.Station);
+                const Temps = data.map(item => (item['Max Temp (°C)'] + item['Min Temp (°C)']) / 2);
+                const rh0830ist = data.map(item => (item['RH at 0830IST']));
+                const rh1730ist = data.map(item => (item['RH at 1730IST']));
+                const rainfalls = data.map(item => item['Rainfall (mm)']);
+
+                // Generate the selected chart
+                var selectedChartCtx = document.getElementById(selectedGraph).getContext('2d');
+                if (selectedGraph === 'temperatureChart') {
+                    new Chart(selectedChartCtx, {
+                        type: 'bar',
+                        data: {
+                            labels: stations,
+                            datasets: [{
+                                label: 'Average Temperature',
+                                data: Temps,
+                                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                                borderColor: 'rgba(54, 162, 235, 1)',
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+
+                    // Display insights related to the temperature chart
+                    const nonZeroTemps = Temps.filter(temp => temp !== 0.0);
+                    const TempMax = Math.max(...nonZeroTemps);
+                    const TempMin = nonZeroTemps.length > 0 ? Math.min(...nonZeroTemps) : 0.0;
+                    const minTemp = Temps.includes(0.0) ? 0.0 : TempMin;
+                    const stationsWithMaxTemp = stations.filter((_, index) => Temps[index] === TempMax);
+                    const stationsWithMinTemp = stations.filter((_, index) => Temps[index] === minTemp);
+                    document.getElementById('maxTemp').innerText = `Highest Temperature: ${TempMax}°C`;
+                    document.getElementById('maxTempStation').innerText = `Station: ${stationsWithMaxTemp}`;
+                    document.getElementById('minTemp').innerText = `Lowest Temperature: ${TempMin}°C`;
+                    document.getElementById('minTempStation').innerText = `Station: ${stationsWithMinTemp}`;
+                } else if (selectedGraph === 'morninghumidityChart') {
+                    new Chart(selectedChartCtx, {
+                        type: 'bar',
+                        data: {
+                            labels: stations,
+                            datasets: [{
+                                label: 'Relative Humidity at 08:30.IST',
+                                data: rh0830ist,
+                                backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                                borderColor: 'rgba(255, 206, 86, 1)',
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+
+                    // Display insights related to the morning humidity chart
+                    const nonZeroRH0830IST = rh0830ist.filter(rh0830 => rh0830 !== 0.0);
+                    const RHMaxAM = Math.max(...nonZeroRH0830IST);
+                    const RHMinAM = nonZeroRH0830IST.length > 0 ? Math.min(...nonZeroRH0830IST) : 0.0;
+                    const minRH0830IST = rh0830ist.includes(0.0) ? 0.0 : RHMinAM;
+                    const stationsWithRHMaxAM = stations.filter((_, index) => rh0830ist[index] === RHMaxAM);
+                    const stationsWithRHMinAM = stations.filter((_, index) => rh0830ist[index] === minRH0830IST);
+                    insightsContainer.innerHTML = `
+                        <h3>Morning's Relative Humidity Insights [🌄💧]</h3>
+                        <p>Highest RH: ${RHMaxAM} %</p>
+                        <p>Station: ${stationsWithRHMaxAM}</p>
+                        <p>Lowest RH: ${minRH0830IST} %</p>
+                        <p>Station: ${stationsWithRHMinAM}</p>
+                    `;
+                } else if (selectedGraph === 'eveninghumidityChart') {
+                    new Chart(selectedChartCtx, {
+                        type: 'bar',
+                        data: {
+                            labels: stations,
+                            datasets: [{
+                                label: 'Relative Humidity at 17:30.IST',
+                                data: rh1730ist,
+                                backgroundColor: 'rgba(155, 206, 86, 0.2)',
+                                borderColor: 'rgba(255, 206, 86, 1)',
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+
+                    // Display insights related to the evening humidity chart
+                    const nonZeroRH1730IST = rh1730ist.filter(rh1730 => rh1730 !== 0.0);
+                    const RHMaxPM = Math.max(...nonZeroRH1730IST);
+                    const RHMinPM = nonZeroRH1730IST.length > 0 ? Math.min(...nonZeroRH1730IST) : 0.0;
+                    const minRH1730IST = rh1730ist.includes(0.0) ? 0.0 : RHMinPM;
+                    const stationsWithRHMaxPM = stations.filter((_, index) => rh1730ist[index] === RHMaxPM);
+                    const stationsWithRHMinPM = stations.filter((_, index) => rh1730ist[index] === minRH1730IST);
+                    insightsContainer.innerHTML = `
+                        <h3>Evening's Relative Humidity Insights [🌆💧]</h3>
+                        <p>Highest RH: ${RHMaxPM} %</p>
+                        <p>Station: ${stationsWithRHMaxPM}</p>
+                        <p>Lowest RH: ${RHMinPM} %</p>
+                        <p>Station: ${stationsWithRHMinPM}</p>
+                    `;
+                } else if (selectedGraph === 'rainfallChart') {
+                    new Chart(selectedChartCtx, {
+                        type: 'bar',
+                        data: {
+                            labels: stations,
+                            datasets: [{
+                                label: 'Rainfall (mm)',
+                                data: rainfalls,
+                                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                                borderColor: 'rgba(255, 99, 132, 1)',
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+
+                    // Display insights related to the rainfall chart
+                    const nonZeroRainfalls = rainfalls.filter(rain => rain !== 0.0);
+                    const rainfallMax = Math.max(...nonZeroRainfalls);
+                    const rainfallMin = nonZeroRainfalls.length > 0 ? Math.min(...nonZeroRainfalls) : 0.0;
+                    const minRainfall = rainfalls.includes(0.0) ? 0.0 : rainfallMin;
+                    const stationsWithrainfallMax = stations.filter((_, index) => rainfalls[index] === rainfallMax);
+                    const stationsWithrainfallMin = stations.filter((_, index) => rainfalls[index] === minRainfall);
+                    insightsContainer.innerHTML = `
+                        <h3>Rainfall Insights [🌧️]</h3>
+                        <p>Highest Rainfall: ${rainfallMax} mm</p>
+                        <p>Station: ${stations[rainfalls.indexOf(rainfallMax)]}</p>
+                        <p>Lowest Rainfall: ${rainfallMin} mm</p>
+                        <p>Station: ${stations[rainfalls.indexOf(rainfallMin)]}</p>
+                    `;
+                }
+            });
+        };
+
+        // Call the function to load the temperature chart by default
+        loadGraph();
+    </script>
+{% endblock %}
+</body>
+</html>

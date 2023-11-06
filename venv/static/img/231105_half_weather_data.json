@@ -1,0 +1,222 @@
+[
+    {
+        "Station": "Badami",
+        "Max Temp (\u00b0C)": 33.8,
+        "Dep. from Normal(Max. temp)": 4.0,
+        "Min Temp (\u00b0C)": 20.8,
+        "Dep. from Normal(Min. temp)": 0,
+        "RH at 0830IST": 79.0,
+        "RH at 1730IST": 41.0,
+        "Rainfall (mm)": 0.0,
+        "generated_report": "At Badami, the weather today is as follows:\n\nThe maximum temperature is expected to reach 33.8\u00b0C, \n\n,which is 4\u00b0C warmer than usual for this time of year.\n\nClimate's so warm out there! The minimum temperature is 20.8\u00b0C\n\ntemperatures are normal than the typical temperature for this time of year.\n\nIt starts off a bit humid in the morning but becomes drier later in the day.\n\nNo significant rainfall is expected today.\n"
+    },
+    {
+        "Station": "BAGALKOT",
+        "Max Temp (\u00b0C)": 33.8,
+        "Dep. from Normal(Max. temp)": 4.0,
+        "Min Temp (\u00b0C)": 20.8,
+        "Dep. from Normal(Min. temp)": 0,
+        "RH at 0830IST": 79.0,
+        "RH at 1730IST": 41.0,
+        "Rainfall (mm)": 0.0,
+        "generated_report": "At BAGALKOT, the weather today is as follows:\n\nThe maximum temperature is expected to reach 33.8\u00b0C, \n\n,which is 4\u00b0C warmer than usual for this time of year.\n\nClimate's so warm out there! The minimum temperature is 20.8\u00b0C\n\ntemperatures are normal than the typical temperature for this time of year.\n\nIt starts off a bit humid in the morning but becomes drier later in the day.\n\nNo significant rainfall is expected today.\n"
+    },
+    {
+        "Station": "Belagavi",
+        "Max Temp (\u00b0C)": 30.5,
+        "Dep. from Normal(Max. temp)": 1.0,
+        "Min Temp (\u00b0C)": 20.5,
+        "Dep. from Normal(Min. temp)": 3.0,
+        "RH at 0830IST": 83.0,
+        "RH at 1730IST": 55.0,
+        "Rainfall (mm)": 0.0,
+        "generated_report": "At Belagavi, the weather today is as follows:\n\nThe maximum temperature is expected to reach 30.5\u00b0C, \n\n,which is 1\u00b0C warmer than usual for this time of year.\n\nClimate's so warm out there! The minimum temperature is 20.5\u00b0C\n\n, 3\u00b0C warmer than the typical temperature for this time of year.\n\nIt starts off a bit humid in the morning but becomes drier later in the day.\n\nNo significant rainfall is expected today. Also"
+    },
+    {
+        "Station": "Bengaluru-HAL-Airport",
+        "Max Temp (\u00b0C)": 28.5,
+        "Dep. from Normal(Max. temp)": 2.0,
+        "Min Temp (\u00b0C)": 18.8,
+        "Dep. from Normal(Min. temp)": 0.0,
+        "RH at 0830IST": 80.0,
+        "RH at 1730IST": 89.0,
+        "Rainfall (mm)": 35.0,
+        "generated_report": "At Bengaluru-HAL-Airport, the weather today is as follows:\n\nThe maximum temperature is expected to reach 28.5\u00b0C, \n\n,which is 2\u00b0C warmer than usual for this time of year.\n\nEnjoy the warm weather today! The minimum temperature is 18.8\u00b0C\n\ntemperatures are normal than the typical temperature for this time of year.\n\nThe humidity levels remain relatively stable throughout the day.\n\nExpect heavy rainfall today with 35.0 mm of precipitation.\n"
+    },
+    {
+        "Station": "Bengaluru-International-Airport",
+        "Max Temp (\u00b0C)": 30.9,
+        "Dep. from Normal(Max. temp)": 2.0,
+        "Min Temp (\u00b0C)": 20.8,
+        "Dep. from Normal(Min. temp)": 0,
+        "RH at 0830IST": 84.0,
+        "RH at 1730IST": 90.0,
+        "Rainfall (mm)": 7.6,
+        "generated_report": "At-Bengaluru-International Airport, the weather today is as follows:\n\nThe maximum temperature is expected to reach 30.9\u00b0C, \n\n,which is 2\u00b0C warmer than usual for this time of year.\n\nClimate's so warm out there! The minimum temperature is 20.8\u00b0C\n\ntemperatures are normal than the typical temperature for this time of year.\n\nThe humidity levels remain relatively stable throughout the day.\n\nExpect heavy rainfall today with 7.6 mm of precipitation.\n"
+    },
+    {
+        "Station": "Bengaluru-City",
+        "Max Temp (\u00b0C)": 29.0,
+        "Dep. from Normal(Max. temp)": 1.0,
+        "Min Temp (\u00b0C)": 20.8,
+        "Dep. from Normal(Min. temp)": 2.0,
+        "RH at 0830IST": 82.0,
+        "RH at 1730IST": 85.0,
+        "Rainfall (mm)": 1.7,
+        "generated_report": "At Bengaluru-City, the weather today is as follows:\n\nThe maximum temperature is expected to reach 29.0\u00b0C, \n\n,which is 1\u00b0C warmer than usual for this time of year.\n\nEnjoy the warm weather today! The minimum temperature is 20.8\u00b0C\n\n, 2\u00b0C warmer than the typical temperature for this time of year.\n\nThe humidity levels remain relatively stable throughout the day.\n\nWe might see some light rain today with 1.7 mm of precipitation.\n"
+    },
+    {
+        "Station": "Bengaluru-GKVK",
+        "Max Temp (\u00b0C)": 0.0,
+        "Dep. from Normal(Max. temp)": 0,
+        "Min Temp (\u00b0C)": 20.2,
+        "Dep. from Normal(Min. temp)": 0,
+        "RH at 0830IST": 85.0,
+        "RH at 1730IST": 0,
+        "Rainfall (mm)": 5.2,
+        "generated_report": "At Bengaluru-GKVK, the weather today is as follows:\n\nThe maximum temperature is expected to reach 0.0\u00b0C, \n\ntemperatures are normal than usual for this time of year.\n\nIt's a pleasant day with mild temperatures. The minimum temperature is 20.2\u00b0C\n\ntemperatures are normal than the typical temperature for this time of year.\n\nIt starts off a bit humid in the morning but becomes drier later in the day.\n\nExpect heavy rainfall today with 5.2 mm of precipitation. The"
+    },
+    {
+        "Station": "Bidar",
+        "Max Temp (\u00b0C)": 29.4,
+        "Dep. from Normal(Max. temp)": 0.0,
+        "Min Temp (\u00b0C)": 18.0,
+        "Dep. from Normal(Min. temp)": 1.0,
+        "RH at 0830IST": 76.0,
+        "RH at 1730IST": 57.0,
+        "Rainfall (mm)": 0.0,
+        "generated_report": "At Bidar, the weather today is as follows:\n\nThe maximum temperature is expected to reach 29.4\u00b0C, \n\ntemperatures are normal than usual for this time of year.\n\nEnjoy the warm weather today! The minimum temperature is 18.0\u00b0C\n\n, 1\u00b0C warmer than the typical temperature for this time of year.\n\nIt starts off a bit humid in the morning but becomes drier later in the day.\n\nNo significant rainfall is expected today. The"
+    },
+    {
+        "Station": "Chitradurga",
+        "Max Temp (\u00b0C)": 32.2,
+        "Dep. from Normal(Max. temp)": 3.0,
+        "Min Temp (\u00b0C)": 22.2,
+        "Dep. from Normal(Min. temp)": 3.0,
+        "RH at 0830IST": 90.0,
+        "RH at 1730IST": 51.0,
+        "Rainfall (mm)": 0.0,
+        "generated_report": "At Chitradurga, the weather today is as follows:\n\nThe maximum temperature is expected to reach 32.2\u00b0C, \n\n,which is 3\u00b0C warmer than usual for this time of year.\n\nClimate's so warm out there! The minimum temperature is 22.2\u00b0C\n\n, 3\u00b0C warmer than the typical temperature for this time of year.\n\nIt starts off a bit humid in the morning but becomes drier later in the day.\n\nNo significant rainfall is expected today.\n"
+    },
+    {
+        "Station": "Dharwad",
+        "Max Temp (\u00b0C)": 31.4,
+        "Dep. from Normal(Max. temp)": 2.0,
+        "Min Temp (\u00b0C)": 19.0,
+        "Dep. from Normal(Min. temp)": 2.0,
+        "RH at 0830IST": 83.0,
+        "RH at 1730IST": 48.0,
+        "Rainfall (mm)": 0.0,
+        "generated_report": "At Dharwad, the weather today is as follows:\n\nThe maximum temperature is expected to reach 31.4\u00b0C, \n\n,which is 2\u00b0C warmer than usual for this time of year.\n\nClimate's so warm out there! The minimum temperature is 19.0\u00b0C\n\n, 2\u00b0C warmer than the typical temperature for this time of year.\n\nIt starts off a bit humid in the morning but becomes drier later in the day.\n\nNo significant rainfall is expected today. It"
+    },
+    {
+        "Station": "Gadag",
+        "Max Temp (\u00b0C)": 32.8,
+        "Dep. from Normal(Max. temp)": 3.0,
+        "Min Temp (\u00b0C)": 21.4,
+        "Dep. from Normal(Min. temp)": 2.0,
+        "RH at 0830IST": 75.0,
+        "RH at 1730IST": 50.0,
+        "Rainfall (mm)": 0.0,
+        "generated_report": "At Gadag, the weather today is as follows:\n\nThe maximum temperature is expected to reach 32.8\u00b0C, \n\n,which is 3\u00b0C warmer than usual for this time of year.\n\nClimate's so warm out there! The minimum temperature is 21.4\u00b0C\n\n, 2\u00b0C warmer than the typical temperature for this time of year.\n\nIt starts off a bit humid in the morning but becomes drier later in the day.\n\nNo significant rainfall is expected today.\n"
+    },
+    {
+        "Station": "Gokarna",
+        "Max Temp (\u00b0C)": 36.6,
+        "Dep. from Normal(Max. temp)": 4.0,
+        "Min Temp (\u00b0C)": null,
+        "Dep. from Normal(Min. temp)": 0,
+        "RH at 0830IST": 0,
+        "RH at 1730IST": 66.0,
+        "Rainfall (mm)": null,
+        "generated_report": "At Gokarna, the weather today is as follows:\n\nThe maximum temperature is expected to reach 36.6\u00b0C, \n\n,which is 4\u00b0C warmer than usual for this time of year.\n\nClimate's so warm out there! The minimum temperature is 0.0\u00b0C\n\ntemperatures are normal than the typical temperature for this time of year.\n\nThe humidity levels remain relatively stable throughout the day.\n\nNo significant rainfall is expected today.\n\nPlease"
+    },
+    {
+        "Station": "Honnavar",
+        "Max Temp (\u00b0C)": 34.1,
+        "Dep. from Normal(Max. temp)": 1.0,
+        "Min Temp (\u00b0C)": 25.4,
+        "Dep. from Normal(Min. temp)": 2.0,
+        "RH at 0830IST": 92.0,
+        "RH at 1730IST": 78.0,
+        "Rainfall (mm)": 0.0,
+        "generated_report": "At Honnavar, the weather today is as follows:\n\nThe maximum temperature is expected to reach 34.1\u00b0C, \n\n,which is 1\u00b0C warmer than usual for this time of year.\n\nClimate's so warm out there! The minimum temperature is 25.4\u00b0C\n\n, 2\u00b0C warmer than the typical temperature for this time of year.\n\nThe humidity levels remain relatively stable throughout the day.\n\nNo significant rainfall is expected today.\n\nAlthough"
+    },
+    {
+        "Station": "Kalaburgi",
+        "Max Temp (\u00b0C)": 33.2,
+        "Dep. from Normal(Max. temp)": 2.0,
+        "Min Temp (\u00b0C)": 23.3,
+        "Dep. from Normal(Min. temp)": 4.0,
+        "RH at 0830IST": 77.0,
+        "RH at 1730IST": 55.0,
+        "Rainfall (mm)": 0.0,
+        "generated_report": "At Kalaburgi, the weather today is as follows:\n\nThe maximum temperature is expected to reach 33.2\u00b0C, \n\n,which is 2\u00b0C warmer than usual for this time of year.\n\nClimate's so warm out there! The minimum temperature is 23.3\u00b0C\n\n, 4\u00b0C warmer than the typical temperature for this time of year.\n\nIt starts off a bit humid in the morning but becomes drier later in the day.\n\nNo significant rainfall is expected today.\n"
+    },
+    {
+        "Station": "Karwar",
+        "Max Temp (\u00b0C)": 34.7,
+        "Dep. from Normal(Max. temp)": 1.0,
+        "Min Temp (\u00b0C)": 25.5,
+        "Dep. from Normal(Min. temp)": 2.0,
+        "RH at 0830IST": 94.0,
+        "RH at 1730IST": 73.0,
+        "Rainfall (mm)": 0.0,
+        "generated_report": "At Karwar, the weather today is as follows:\n\nThe maximum temperature is expected to reach 34.7\u00b0C, \n\n,which is 1\u00b0C warmer than usual for this time of year.\n\nClimate's so warm out there! The minimum temperature is 25.5\u00b0C\n\n, 2\u00b0C warmer than the typical temperature for this time of year.\n\nThe humidity levels remain relatively stable throughout the day.\n\nNo significant rainfall is expected today.\n\nMountain"
+    },
+    {
+        "Station": "Mandya",
+        "Max Temp (\u00b0C)": 30.6,
+        "Dep. from Normal(Max. temp)": 3.0,
+        "Min Temp (\u00b0C)": 21.9,
+        "Dep. from Normal(Min. temp)": 3.0,
+        "RH at 0830IST": 90.0,
+        "RH at 1730IST": 89.0,
+        "Rainfall (mm)": 1.0,
+        "generated_report": "At Mandya, the weather today is as follows:\n\nThe maximum temperature is expected to reach 30.6\u00b0C, \n\n,which is 3\u00b0C warmer than usual for this time of year.\n\nClimate's so warm out there! The minimum temperature is 21.9\u00b0C\n\n, 3\u00b0C warmer than the typical temperature for this time of year.\n\nThe humidity levels remain relatively stable throughout the day.\n\nWe might see some light rain today with 1.0 mm of precipitation.\n"
+    },
+    {
+        "Station": "Mangaluru",
+        "Max Temp (\u00b0C)": 29.0,
+        "Dep. from Normal(Max. temp)": 1.0,
+        "Min Temp (\u00b0C)": 24.1,
+        "Dep. from Normal(Min. temp)": 1.0,
+        "RH at 0830IST": 92.0,
+        "RH at 1730IST": 81.0,
+        "Rainfall (mm)": 3.0,
+        "generated_report": "At Mangaluru, the weather today is as follows:\n\nThe maximum temperature is expected to reach 29.0\u00b0C, \n\n,which is 1\u00b0C warmer than usual for this time of year.\n\nEnjoy the warm weather today! The minimum temperature is 24.1\u00b0C\n\n, 1\u00b0C warmer than the typical temperature for this time of year.\n\nThe humidity levels remain relatively stable throughout the day.\n\nWe might see some light rain today with 3.0 mm of precipitation.\n"
+    },
+    {
+        "Station": "Mysuru",
+        "Max Temp (\u00b0C)": 0.0,
+        "Dep. from Normal(Max. temp)": 0,
+        "Min Temp (\u00b0C)": 24.0,
+        "Dep. from Normal(Min. temp)": 2.0,
+        "RH at 0830IST": 79.0,
+        "RH at 1730IST": 0,
+        "Rainfall (mm)": 3.0,
+        "generated_report": "At Mysuru, the weather today is as follows:\n\nThe maximum temperature is expected to reach 0.0\u00b0C, \n\ntemperatures are normal than usual for this time of year.\n\nIt's a pleasant day with mild temperatures. The minimum temperature is 24.0\u00b0C\n\n, 2\u00b0C warmer than the typical temperature for this time of year.\n\nIt starts off a bit humid in the morning but becomes drier later in the day.\n\nWe might see some light rain today with 3.0 mm of precipitation.\n"
+    },
+    {
+        "Station": "Raichur",
+        "Max Temp (\u00b0C)": 0.0,
+        "Dep. from Normal(Max. temp)": 0,
+        "Min Temp (\u00b0C)": 23.8,
+        "Dep. from Normal(Min. temp)": 4.0,
+        "RH at 0830IST": 72.0,
+        "RH at 1730IST": 0,
+        "Rainfall (mm)": 0.0,
+        "generated_report": "At Raichur, the weather today is as follows:\n\nThe maximum temperature is expected to reach 0.0\u00b0C, \n\ntemperatures are normal than usual for this time of year.\n\nIt's a pleasant day with mild temperatures. The minimum temperature is 23.8\u00b0C\n\n, 4\u00b0C warmer than the typical temperature for this time of year.\n\nIt starts off a bit humid in the morning but becomes drier later in the day.\n\nNo significant rainfall is expected today.\n"
+    },
+    {
+        "Station": "Vijayapura",
+        "Max Temp (\u00b0C)": 31.0,
+        "Dep. from Normal(Max. temp)": 0.0,
+        "Min Temp (\u00b0C)": 18.0,
+        "Dep. from Normal(Min. temp)": 0.0,
+        "RH at 0830IST": 81.0,
+        "RH at 1730IST": 54.0,
+        "Rainfall (mm)": 0.0,
+        "generated_report": "At Vijayapura, the weather today is as follows:\n\nThe maximum temperature is expected to reach 31.0\u00b0C, \n\ntemperatures are normal than usual for this time of year.\n\nClimate's so warm out there! The minimum temperature is 18.0\u00b0C\n\ntemperatures are normal than the typical temperature for this time of year.\n\nIt starts off a bit humid in the morning but becomes drier later in the day.\n\nNo significant rainfall is expected today. A"
+    }
+]

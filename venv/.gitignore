@@ -1,0 +1,12 @@
+# Ignore the Lib directory
+Lib
+
+# Ignore specific files
+config.ini
+secrets.txt
+
+# Ignore files with a specific extension
+*.log
+
+# Ignore files in a specific directory with a specific extension/
+logs/*.logs
